@@ -4,14 +4,13 @@ plugins {
 }
 
 project.ext {
-	lwjglVersion = "3.3.2-SNAPSHOT"
+	lwjglVersion = "3.3.2"
 	jomlVersion = "1.10.5"
 	lwjglNatives = "natives-windows"
 }
 
 repositories {
 	mavenCentral()
-	maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
 	maven { url 'https://jitpack.io' }
 }
 
@@ -31,8 +30,11 @@ dependencies {
 	
 	implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2'
 	
-	implementation 'com.github.KoosSA:NiftyGui-core:-SNAPSHOT'
+	implementation 'com.github.KoosSA:NiftyGui-core:master-SNAPSHOT'
 	
 }
+
+
+
 
 
