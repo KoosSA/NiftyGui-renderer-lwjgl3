@@ -1,6 +1,14 @@
 package de.lessvoid.nifty.renderer.lwjgl3.input;
 
-import static org.lwjgl.glfw.GLFW.*;
+import static org.lwjgl.glfw.GLFW.GLFW_MOD_CONTROL;
+import static org.lwjgl.glfw.GLFW.GLFW_MOD_SHIFT;
+import static org.lwjgl.glfw.GLFW.GLFW_PRESS;
+import static org.lwjgl.glfw.GLFW.GLFW_REPEAT;
+import static org.lwjgl.glfw.GLFW.glfwGetCursorPos;
+import static org.lwjgl.glfw.GLFW.glfwGetKeyName;
+import static org.lwjgl.glfw.GLFW.glfwGetWindowPos;
+import static org.lwjgl.glfw.GLFW.glfwPollEvents;
+import static org.lwjgl.glfw.GLFW.glfwSetCursorPos;
 
 import java.nio.DoubleBuffer;
 import java.nio.IntBuffer;
@@ -10,6 +18,7 @@ import java.util.logging.Logger;
 import javax.annotation.Nonnull;
 
 import org.lwjgl.BufferUtils;
+import org.lwjgl.glfw.GLFWCharCallback;
 import org.lwjgl.glfw.GLFWCursorPosCallback;
 import org.lwjgl.glfw.GLFWKeyCallback;
 import org.lwjgl.glfw.GLFWMouseButtonCallback;
@@ -24,7 +33,7 @@ import de.lessvoid.nifty.tools.resourceloader.NiftyResourceLoader;
  * Port of <code>de.lessvoid.nifty.renderer.lwjgl.LwjglInputSystem</code>
  * to LWJGL3/GLFW.
  * 
- * @author Brian Groenke
+ * @author Brian Groenke & Koos
  */
 public class Lwjgl3InputSystem implements InputSystem {
   
@@ -43,6 +52,13 @@ public class Lwjgl3InputSystem implements InputSystem {
       keyboardEventsOut.offer(createKeyEvent(key, scancode, action, mods));
     }
   };
+  
+ /* public final GLFWCharCallback charCallback = new GLFWCharCallback() {
+	@Override
+	public void invoke(long window, int codepoint) {
+		keyboardEventsOut.offer(createKeyEvent(codepoint, 0, 0, 0));
+	}
+};*/
   
   public final GLFWCursorPosCallback cursorPosCallback = new GLFWCursorPosCallback() {
     @Override
@@ -77,7 +93,8 @@ public class Lwjgl3InputSystem implements InputSystem {
 
   public void startup() throws Exception {
     log.finer("Initializing LWJGL3 input system...");
-    
+
+    GlfwToNiftyKeyCodeConverter.setNiftyKeycodes();
     initialized = true;
   }
 
@@ -162,10 +179,9 @@ public class Lwjgl3InputSystem implements InputSystem {
     final boolean keyDown = action == GLFW_PRESS || action == GLFW_REPEAT;
     final boolean shiftDown = (mods & GLFW_MOD_SHIFT) != 0;
     final boolean ctrlDown = (mods & GLFW_MOD_CONTROL) != 0;
-    final int niftyKeyCode = GlfwToNiftyKeyCodeConverter.convertToNiftyKeyCode(key);
     final String keyName = glfwGetKeyName (key, scancode);
     final char keyChar = (keyName != null && keyName.length() == 1) ? keyName.charAt(0) : Character.MIN_VALUE;
-    return new KeyboardInputEvent(niftyKeyCode, keyChar, keyDown, shiftDown, ctrlDown);
+    return new KeyboardInputEvent(key, (char) key, keyDown, shiftDown, ctrlDown);
   }
   
   private MouseInputEvent createMouseEvent(final float xpos, final float ypos) {
