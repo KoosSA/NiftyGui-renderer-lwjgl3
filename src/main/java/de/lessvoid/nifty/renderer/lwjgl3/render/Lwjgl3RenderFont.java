@@ -1,11 +1,11 @@
 package de.lessvoid.nifty.renderer.lwjgl3.render;
 
+import javax.annotation.Nonnull;
+
 import de.lessvoid.nifty.renderer.lwjgl3.render.font.CharacterInfo;
 import de.lessvoid.nifty.renderer.lwjgl3.render.font.Font;
 import de.lessvoid.nifty.spi.render.RenderFont;
 import de.lessvoid.nifty.tools.resourceloader.NiftyResourceLoader;
-
-import javax.annotation.Nonnull;
 
 public class Lwjgl3RenderFont implements RenderFont {
   @Nonnull

@@ -1,8 +1,8 @@
 package de.lessvoid.nifty.renderer.lwjgl3.render;
 
-import de.lessvoid.nifty.render.batch.spi.BatchRenderBackend;
-
 import java.nio.ByteBuffer;
+
+import de.lessvoid.nifty.render.batch.spi.BatchRenderBackend;
 
 /**
  * @author Aaron Mahan &lt;aaron@forerunnergames.com&gt;

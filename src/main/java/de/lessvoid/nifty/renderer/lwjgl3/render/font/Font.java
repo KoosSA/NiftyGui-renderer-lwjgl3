@@ -1,15 +1,17 @@
 package de.lessvoid.nifty.renderer.lwjgl3.render.font;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.annotation.Nonnull;
+
+import org.lwjgl.opengl.GL11;
+
 import de.lessvoid.nifty.elements.tools.FontHelper;
 import de.lessvoid.nifty.renderer.lwjgl3.render.Lwjgl3RenderImage;
 import de.lessvoid.nifty.tools.Color;
 import de.lessvoid.nifty.tools.ColorValueParser;
 import de.lessvoid.nifty.tools.resourceloader.NiftyResourceLoader;
-import org.lwjgl.opengl.GL11;
-
-import javax.annotation.Nonnull;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * OpenGL display list based Font.

@@ -18,7 +18,6 @@ import java.util.logging.Logger;
 import javax.annotation.Nonnull;
 
 import org.lwjgl.BufferUtils;
-import org.lwjgl.glfw.GLFWCharCallback;
 import org.lwjgl.glfw.GLFWCursorPosCallback;
 import org.lwjgl.glfw.GLFWKeyCallback;
 import org.lwjgl.glfw.GLFWMouseButtonCallback;

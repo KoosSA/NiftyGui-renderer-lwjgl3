@@ -1,9 +1,9 @@
 package de.lessvoid.nifty.renderer.lwjgl3.render.font;
 
-import javax.annotation.Nonnull;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.annotation.Nonnull;
 
 /**
  * info of an individual character.

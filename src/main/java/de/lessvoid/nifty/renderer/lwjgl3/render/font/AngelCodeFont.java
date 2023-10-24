@@ -1,12 +1,18 @@
 package de.lessvoid.nifty.renderer.lwjgl3.render.font;
 
-import de.lessvoid.nifty.tools.resourceloader.NiftyResourceLoader;
-
-import javax.annotation.Nonnull;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.StreamTokenizer;
+import java.io.StringReader;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.annotation.Nonnull;
+
+import de.lessvoid.nifty.tools.resourceloader.NiftyResourceLoader;
 
 /**
  * AngelCodeFont loading.

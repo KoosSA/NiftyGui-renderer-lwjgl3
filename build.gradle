@@ -1,7 +1,12 @@
 plugins {
-	id 'java'
 	id 'java-library'
+	id 'maven-publish'
 }
+
+group 'github.koossa'
+version mavenPubVersion
+
+sourceCompatibility = '1.8'
 
 project.ext {
 	lwjglVersion = "3.3.3"
@@ -11,7 +16,13 @@ project.ext {
 
 repositories {
 	mavenCentral()
-	maven { url 'https://jitpack.io' }
+	maven { 
+	    	url = uri("https://maven.pkg.github.com/KoosSA/MavenRepos") 
+	    	credentials {
+            	username = project.findProperty("gpr.user") ?: System.getenv("GIT_USERNAME")
+            	password = project.findProperty("gpr.key") ?: System.getenv("GIT_TOKEN")
+        	}
+	    }
 }
 
 dependencies {
@@ -30,8 +41,41 @@ dependencies {
 	
 	implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2'
 	
-	implementation 'com.github.KoosSA:NiftyGui-core:61a27b3d60'
+	implementation 'github.koossa:niftygui-core:1.0.0'
 	
+}
+
+java {
+    withSourcesJar()
+    withJavadocJar()
+}
+
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/KoosSA/MavenRepos")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("GIT_USERNAME")
+                password = project.findProperty("gpr.key") ?: System.getenv("GIT_TOKEN")
+            }
+        }
+    }
+    publications {
+        gpr(MavenPublication) {
+        	artifactId = 'niftygui-renderer'
+            from(components.java)
+        }
+    }
+}
+
+if (JavaVersion.current().isJava8Compatible()) {
+    allprojects {
+      tasks.withType(Javadoc) {
+        options.addStringOption('Xdoclint:none', '-quiet')
+      }
+    }
 }
 
 

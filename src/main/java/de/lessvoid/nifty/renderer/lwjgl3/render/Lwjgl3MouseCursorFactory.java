@@ -1,12 +1,13 @@
 package de.lessvoid.nifty.renderer.lwjgl3.render;
 
+import java.io.IOException;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import de.lessvoid.nifty.render.batch.spi.MouseCursorFactory;
 import de.lessvoid.nifty.spi.render.MouseCursor;
 import de.lessvoid.nifty.tools.resourceloader.NiftyResourceLoader;
-
-import java.io.IOException;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 /**
  * @author Aaron Mahan &lt;aaron@forerunnergames.com&gt;

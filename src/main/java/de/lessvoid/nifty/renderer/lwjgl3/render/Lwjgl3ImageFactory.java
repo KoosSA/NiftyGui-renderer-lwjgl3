@@ -1,11 +1,12 @@
 package de.lessvoid.nifty.renderer.lwjgl3.render;
 
-import de.lessvoid.nifty.render.batch.spi.BatchRenderBackend.Image;
-import de.lessvoid.nifty.render.batch.spi.ImageFactory;
-
 import java.nio.ByteBuffer;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+
+import de.lessvoid.nifty.render.batch.spi.BatchRenderBackend.Image;
+import de.lessvoid.nifty.render.batch.spi.ImageFactory;
 
 /**
  * @author Aaron Mahan &lt;aaron@forerunnergames.com&gt;

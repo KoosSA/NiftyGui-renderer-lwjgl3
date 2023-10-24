@@ -1,13 +1,14 @@
 package de.lessvoid.nifty.renderer.lwjgl3.render;
 
-import de.lessvoid.nifty.render.batch.spi.BufferFactory;
-
-import org.lwjgl.BufferUtils;
-
 import java.nio.ByteBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
+
 import javax.annotation.Nonnull;
+
+import org.lwjgl.BufferUtils;
+
+import de.lessvoid.nifty.render.batch.spi.BufferFactory;
 
 /**
  * @author Aaron Mahan &lt;aaron@forerunnergames.com&gt;

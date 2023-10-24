@@ -1,7 +1,5 @@
 package de.lessvoid.nifty.renderer.lwjgl3.render;
 
-import de.lessvoid.nifty.render.batch.spi.GL;
-
 import java.nio.ByteBuffer;
 import java.nio.DoubleBuffer;
 import java.nio.FloatBuffer;
@@ -11,6 +9,8 @@ import java.nio.ShortBuffer;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
+
+import de.lessvoid.nifty.render.batch.spi.GL;
 
 public class Lwjgl3GL implements GL {
   @Override

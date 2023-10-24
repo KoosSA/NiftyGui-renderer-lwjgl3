@@ -1,9 +1,9 @@
 package de.lessvoid.nifty.renderer.lwjgl3.render;
 
+import javax.annotation.Nonnull;
+
 import de.lessvoid.nifty.render.batch.core.BatchRenderBackendCoreProfileInternal;
 import de.lessvoid.nifty.render.batch.spi.BatchRenderBackend;
-
-import javax.annotation.Nonnull;
 
 /**
  * @author Aaron Mahan &lt;aaron@forerunnergames.com&gt;
