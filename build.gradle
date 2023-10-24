@@ -41,7 +41,7 @@ dependencies {
 	
 	implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2'
 	
-	implementation 'github.koossa:niftygui-core:1.0.0'
+	implementation "github.koossa:niftygui-core:$coreVersion"
 	
 }
 
